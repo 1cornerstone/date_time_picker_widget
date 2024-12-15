@@ -89,8 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   _colorPallet(),
                   const SizedBox(height: 24),
                   const Divider(),
-                  const SizedBox(height: 24),
-                  _dateTimePicker(),
+                  // const SizedBox(height: 24),
+                  // _dateTimePicker(),
                   const SizedBox(height: 24),
                   const Divider(),
                   const SizedBox(height: 24),
@@ -256,6 +256,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _timePicker() {
+    print(DateTime.now());
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -273,7 +274,9 @@ class _MyHomePageState extends State<MyHomePage> {
         const SizedBox(height: 16),
         DateTimePicker(
           type: DateTimePickerType.Time,
-          timeInterval: const Duration(minutes: 30),
+          timeInterval: const Duration(minutes: 5),
+          startTime: DateTime.now(),
+          endTime: DateTime.parse('2024-12-15 18:30'),
           onTimeChanged: (time) {
             setState(() {
               _t2 = DateFormat('hh:mm:ss aa').format(time);
